@@ -4,13 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using Newtonsoft.Json;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 using Microsoft.WindowsAzure.Storage.Auth;
@@ -26,56 +21,61 @@ namespace OwinSelfhostSample
         {
 
             //string pcode = "Dublin 7";
+            RefuseModel refusemodel = new RefuseModel();
 
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString);
+            CloudTable table = refusemodel.Table("RefuseCollect");
 
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-            CloudTable table = tableClient.GetTableReference("Refuse");
-
-            TableQuery<RefuseEntity> query = new TableQuery<RefuseEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, id));
-
-            var results = table.ExecuteQuery(query);
-
-            //var json = JsonConvert.SerializeObject(results);
+            var results = refusemodel.Selectbyid(id, table);
 
             return results;
         }
+       
 
-        // GET api/values/5 
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        // POST api/values 
-        public void Post([FromBody] PostRefuse postrefuse)
+        public RefuseEntity Get(String id, String pareaid)
         {
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString);
+            RefuseModel refusemodel = new RefuseModel();
 
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+            CloudTable table=refusemodel.Table("RefuseCollect");
 
-            CloudTable table = tableClient.GetTableReference("Refuse");
+            var selectrefuse = new PutRefuse() { id = id, pareaid = pareaid };
 
-            DateTime nowDate = DateTime.Now;
+            var results=refusemodel.RetrieveRefuse(table,selectrefuse);
 
-            DateTime collectionDate = nowDate.AddYears(1000);
-
-            RefuseEntity refuse = new RefuseEntity(postrefuse.id, postrefuse.pareaid, postrefuse.platitude, postrefuse.plongitude, nowDate, false, collectionDate);
-
-            TableOperation insertOperation = TableOperation.Insert(refuse);
-
-            table.Execute(insertOperation);
+            return results;
+            
         }
 
-        // PUT api/values/5 
-        public void Put(int id, [FromBody]PostRefuse postrefuse)
+        
+        public String Post([FromBody] PostRefuse postrefuse)
         {
+            RefuseModel refusemodel = new RefuseModel();
+
+            CloudTable table = refusemodel.Table("RefuseCollect");
+
+            String insertbypostrefuse = refusemodel.InsertbyPostrefuse(table, postrefuse);
+
+            return insertbypostrefuse;
+        }
+
+        
+        public String Put([FromBody] PutRefuse putrefuse)
+        {
+            RefuseModel refusemodel = new RefuseModel();
+
+            CloudTable table = refusemodel.Table("RefuseCollect");
+
+            String updatebyputrefuse = refusemodel.UpdatebyPutrefuse(table, putrefuse);
+
+            return updatebyputrefuse;
         }
 
         // DELETE api/values/5 
-        public void Delete(int id)
+        public String Delete(String id)
         {
+            RefuseModel refusemodel = new RefuseModel();
+            CloudTable table = refusemodel.Table("RefuseCollect");
+            String Deleteoutcome =refusemodel.Deleteentry(table,id);
+            return Deleteoutcome;
         }
     }
 }

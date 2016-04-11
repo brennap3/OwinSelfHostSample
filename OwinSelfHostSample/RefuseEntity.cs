@@ -21,21 +21,21 @@ namespace OwinSelfHostSample
         public RefuseEntity()
         {
         }
-        public RefuseEntity(string areaname, string areaid, string platitude, string plongitude, DateTime timereported, bool hasbeencollected, DateTime timecollected)
+        public RefuseEntity(string areaname, string areaid, string platitude, string plongitude, string timereported, string hasbeencollected, string timecollected)
         {
             this.PartitionKey = areaname;
             this.RowKey = areaid;
             this.latitude = platitude;
             this.longitude = plongitude;
             this.Timereported = timereported;
-            this.HasBeen_Collected = hasbeencollected;
+            this.HasBeenCollected = hasbeencollected;
             this.Timecollected = timecollected;
         }
 
         public string latitude { get; set; }
         public string longitude { get; set; }
-        public DateTime Timereported { get; set; }
-        public DateTime Timecollected { get; set; }
-        public bool HasBeen_Collected { get; set; }
+        public string Timereported { get; set; }
+        public string Timecollected { get; set; }
+        public string HasBeenCollected { get; set; }
     }
 }

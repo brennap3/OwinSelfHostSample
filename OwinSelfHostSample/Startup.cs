@@ -19,11 +19,30 @@ namespace OwinSelfhostSample
                                 pareaid = RouteParameter.Optional,
                                 platitude = RouteParameter.Optional,
                                 plongitude = RouteParameter.Optional,
-                                postrefuse = RouteParameter.Optional
+                                postrefuse = RouteParameter.Optional,
+                                putrefuse = RouteParameter.Optional
 
 
                 }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi2",
+                routeTemplate: "api/{controller}/{id}/{pareaid}",
+                defaults: new
+                {
+                    id = RouteParameter.Optional,
+                    pareaname = RouteParameter.Optional,
+                    pareaid = RouteParameter.Optional,
+                    platitude = RouteParameter.Optional,
+                    plongitude = RouteParameter.Optional,
+                    postrefuse = RouteParameter.Optional,
+                    putrefuse = RouteParameter.Optional
+
+
+                }
+            );
+
 
             appBuilder.UseWebApi(config);
         }

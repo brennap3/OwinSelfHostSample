@@ -16,7 +16,6 @@ c:\users\peter\documents\visual studio 2015\Projects\OwinSelfHostSample\OwinSelf
 c:\users\peter\documents\visual studio 2015\Projects\OwinSelfHostSample\OwinSelfHostSample\bin\Debug\System.Net.Http.Formatting.xml
 c:\users\peter\documents\visual studio 2015\Projects\OwinSelfHostSample\OwinSelfHostSample\bin\Debug\System.Web.Http.xml
 c:\users\peter\documents\visual studio 2015\Projects\OwinSelfHostSample\OwinSelfHostSample\bin\Debug\System.Web.Http.Owin.xml
-c:\users\peter\documents\visual studio 2015\Projects\OwinSelfHostSample\OwinSelfHostSample\obj\Debug\OwinSelfHostSample.csprojResolveAssemblyReference.cache
 c:\users\peter\documents\visual studio 2015\Projects\OwinSelfHostSample\OwinSelfHostSample\obj\Debug\OwinSelfHostSample.exe
 c:\users\peter\documents\visual studio 2015\Projects\OwinSelfHostSample\OwinSelfHostSample\obj\Debug\OwinSelfHostSample.pdb
 c:\users\peter\documents\visual studio 2015\Projects\OwinSelfHostSample\OwinSelfHostSample\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
@@ -68,3 +67,4 @@ c:\users\peter\documents\visual studio 2015\Projects\OwinSelfHostSample\OwinSelf
 c:\users\peter\documents\visual studio 2015\Projects\OwinSelfHostSample\OwinSelfHostSample\bin\Debug\ru\System.Spatial.resources.dll
 c:\users\peter\documents\visual studio 2015\Projects\OwinSelfHostSample\OwinSelfHostSample\bin\Debug\zh-Hans\System.Spatial.resources.dll
 c:\users\peter\documents\visual studio 2015\Projects\OwinSelfHostSample\OwinSelfHostSample\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\Peter\Documents\Visual Studio 2015\Projects\OwinSelfHostSample\OwinSelfHostSample\obj\Debug\OwinSelfHostSample.csprojResolveAssemblyReference.cache
